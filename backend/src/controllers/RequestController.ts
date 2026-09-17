@@ -4,11 +4,19 @@ import { RequestService } from "../services/RequestService.js";
 export class RequestController {
   constructor(private readonly requestService: RequestService) {}
 
-  list = (_req: Request, res: Response) => res.json(this.requestService.getAll());
+  list = (_req: Request, res: Response) => {
+    return res.json(this.requestService.getAll());
+  };
 
   getOne = (req: Request, res: Response) => {
-    const item = this.requestService.getById(req.params.id);
-    if (!item) return res.status(404).json({ error: "Request not found" });
+    const requestId = String(req.params.id);
+
+    const item = this.requestService.getById(requestId);
+
+    if (!item) {
+      return res.status(404).json({ error: "Request not found" });
+    }
+
     return res.json(item);
   };
 }
