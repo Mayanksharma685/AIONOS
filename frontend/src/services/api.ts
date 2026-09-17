@@ -1,6 +1,6 @@
 import { AgentDecision, EmployeeRequest, KnowledgePolicy, SupportTicket } from "../types";
 
-const API = "http://localhost:4000/api";
+const API = "https://backend-woad-three-55.vercel.app";
 
 async function get<T>(path: string): Promise<T> {
   const response = await fetch(`${API}${path}`);
