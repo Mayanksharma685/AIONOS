@@ -39,7 +39,7 @@ export function Dashboard({ requests, tickets, goAgent }: Props) {
               <p className="eyebrow">RECENT REQUESTS</p>
               <h2>Employee queue</h2>
             </div>
-            <StatusPill>{requests.length} loaded</StatusPill>
+            <StatusPill>{`${requests.length} loaded`}</StatusPill>
           </div>
           {requests.slice(0, 6).map(request => (
             <div className="list-row" key={request.id}>
